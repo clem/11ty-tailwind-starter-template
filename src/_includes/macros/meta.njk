@@ -1,0 +1,19 @@
+{% macro favicon(folder = '/ico/') %}
+    {{ faviconApple(folder) }}
+    {{ faviconPng(folder) }}
+    <link rel="icon" type="image/png" sizes="192x192" href="/ico/android-icon-192x192.png" />
+{% endmacro %}
+
+{% macro faviconApple(folder = '/ico/') %}
+    {% set sizes = ['57x57', '60x60', '72x72', '76x76', '114x114', '120x120', '144x144', '152x152', '180x180'] %}
+    {% for size in sizes %}
+        <link rel="apple-touch-icon" sizes="{{ size }}" href="{{ folder }}apple-icon-{{ size }}.png" />
+    {% endfor %}
+{% endmacro %}
+
+{% macro faviconPng(folder = '/ico/') %}
+    {% set sizes = ['16x16', '32x32', '96x96'] %}
+    {% for size in sizes %}
+        <link rel="icon" type="image/png" sizes="{{ size }}" href="{{ folder }}favicon-{{ size }}.png" />
+    {% endfor %}
+{% endmacro %}
